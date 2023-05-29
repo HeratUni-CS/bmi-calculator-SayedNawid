@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'constants.dart';
 import 'resuable_card.dart';
 
 class InputPage extends StatefulWidget {
@@ -15,7 +15,7 @@ class _InputPageState extends State<InputPage> {
         title: Text('BMI CALCULATOR'),
         backgroundColor: Color(0xFF0A0D22),
       ),
-      body: Column( 
+      body: Column(
         children: [
           Expanded(
             child: Row(
@@ -45,6 +45,12 @@ class _InputPageState extends State<InputPage> {
                 ),
               ],
             ),
+          ),
+          Container(
+             color: buttomCardColor,
+            margin: EdgeInsets.only(top: 10),
+            width: double.infinity,
+            height: bottomHeight,
           ),
         ],
       ),
