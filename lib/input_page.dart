@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
+import 'icon_content.dart';
 import 'resuable_card.dart';
 
 class InputPage extends StatefulWidget {
@@ -23,47 +24,17 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          FontAwesomeIcons.mars,
-                          size: 80,
-                        ),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          "MALE",
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Color(0xFF8D8E98),
-                          ),
-                        )
-                      ],
+                    child: IconContent(
+                      icon: FontAwesomeIcons.mars ,
+                      label: "MALE"
                     ),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          FontAwesomeIcons.mars,
-                          size: 80,
-                        ),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          "FEMALE",
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Color(0xFF8D8E98),
-                          ),
-                        )
-                      ],
+                    child: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      label: "FEMALE",
                     ),
                   ),
                 ),
@@ -98,3 +69,5 @@ class _InputPageState extends State<InputPage> {
     );
   }
 }
+
+
