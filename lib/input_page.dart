@@ -6,37 +6,18 @@ import 'resuable_card.dart';
 
 class InputPage extends StatefulWidget {
   @override
-  State<InputPage> createState() => _InputPageState();
+  State<InputPage> createState() =>_InputPageState();
 }
 
 class _InputPageState extends State<InputPage> {
-  Color maleCardColor = inActiveCardColor;
-  Color feMaleCardColor = inActiveCardColor;
-
-  void changeColor(int gender) {
-    if (gender == 1) {
-      if (maleCardColor == inActiveCardColor) {
-        maleCardColor = activeCardColor;
-        feMaleCardColor = inActiveCardColor;
-      } else {
-        maleCardColor = inActiveCardColor;
-      }
-    }else {
-      if (feMaleCardColor == inActiveCardColor) {
-        feMaleCardColor = activeCardColor;
-        maleCardColor = inActiveCardColor ;
-      } else {
-        feMaleCardColor = inActiveCardColor;
-      }
-    }
-  }
+  Gender? selectedGender;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
-        backgroundColor: Color(0xFF0A0D22),
+        title: const Text('BMI CALCULATOR'),
+        backgroundColor: const Color(0xFF0A0D22),
       ),
       body: Column(
         children: [
@@ -45,13 +26,16 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                     onTap: () {
                       setState(() {
-                        changeColor(1);
+                        selectedGender = Gender.male;
                       });
                     },
                     child: ReusableCard(
-                      color: maleCardColor ,
+                      color: selectedGender == Gender.male
+                          ? activeCardColor
+                          : inActiveCardColor,
                       child: IconContent(
                           icon: FontAwesomeIcons.mars, label: "MALE"),
                     ),
@@ -59,13 +43,16 @@ class _InputPageState extends State<InputPage> {
                 ),
                 Expanded(
                   child: GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                     onTap: () {
                       setState(() {
-                        changeColor(2);
+                        selectedGender = Gender.female;
                       });
                     },
                     child: ReusableCard(
-                      color: feMaleCardColor,
+                      color: selectedGender == Gender.female
+                          ? activeCardColor
+                          : inActiveCardColor,
                       child: IconContent(
                         icon: FontAwesomeIcons.venus,
                         label: "FEMALE",
@@ -95,7 +82,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Container(
             color: buttomCardColor,
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
             height: bottomHeight,
           ),
