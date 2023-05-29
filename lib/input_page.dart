@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'resuable_card.dart';
+
 class InputPage extends StatefulWidget {
   @override
   State<InputPage> createState() => _InputPageState();
@@ -19,57 +21,27 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1D1E33),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
+                  child: ReusableCard(),
                 ),
                 Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1D1E33),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
+                  child: ReusableCard(),
                 ),
               ],
             ),
           ),
           Expanded(
             child: Expanded(
-              child: Container(
-                margin: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  color: Color(0xFF1D1E33),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
+              child: ReusableCard(),
             ),
           ),
           Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1D1E33),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
+                  child: ReusableCard(),
                 ),
                 Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1D1E33),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
+                  child: ReusableCard(),
                 ),
               ],
             ),
