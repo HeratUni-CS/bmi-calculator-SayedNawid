@@ -10,6 +10,27 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color maleCardColor = inActiveCardColor;
+  Color feMaleCardColor = inActiveCardColor;
+
+  void changeColor(int gender) {
+    if (gender == 1) {
+      if (maleCardColor == inActiveCardColor) {
+        maleCardColor = activeCardColor;
+        feMaleCardColor = inActiveCardColor;
+      } else {
+        maleCardColor = inActiveCardColor;
+      }
+    }else {
+      if (feMaleCardColor == inActiveCardColor) {
+        feMaleCardColor = activeCardColor;
+        maleCardColor = inActiveCardColor ;
+      } else {
+        feMaleCardColor = inActiveCardColor;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,18 +44,32 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(
-                    child: IconContent(
-                      icon: FontAwesomeIcons.mars ,
-                      label: "MALE"
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        changeColor(1);
+                      });
+                    },
+                    child: ReusableCard(
+                      color: maleCardColor ,
+                      child: IconContent(
+                          icon: FontAwesomeIcons.mars, label: "MALE"),
                     ),
                   ),
                 ),
                 Expanded(
-                  child: ReusableCard(
-                    child: IconContent(
-                      icon: FontAwesomeIcons.venus,
-                      label: "FEMALE",
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        changeColor(2);
+                      });
+                    },
+                    child: ReusableCard(
+                      color: feMaleCardColor,
+                      child: IconContent(
+                        icon: FontAwesomeIcons.venus,
+                        label: "FEMALE",
+                      ),
                     ),
                   ),
                 ),
@@ -69,5 +104,3 @@ class _InputPageState extends State<InputPage> {
     );
   }
 }
-
-
