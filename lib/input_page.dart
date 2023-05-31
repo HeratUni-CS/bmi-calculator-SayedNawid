@@ -6,7 +6,7 @@ import 'resuable_card.dart';
 
 class InputPage extends StatefulWidget {
   @override
-  State<InputPage> createState() =>_InputPageState();
+  State<InputPage> createState() => _InputPageState();
 }
 
 class _InputPageState extends State<InputPage> {
@@ -25,38 +25,32 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    onTap: () {
+                  child: ReusableCard(
+                    onPress: () {
                       setState(() {
                         selectedGender = Gender.male;
                       });
                     },
-                    child: ReusableCard(
-                      color: selectedGender == Gender.male
-                          ? activeCardColor
-                          : inActiveCardColor,
-                      child: IconContent(
-                          icon: FontAwesomeIcons.mars, label: "MALE"),
-                    ),
+                    color: selectedGender == Gender.male
+                        ? activeCardColor
+                        : inActiveCardColor,
+                    child:
+                        IconContent(icon: FontAwesomeIcons.mars, label: "MALE"),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    onTap: () {
+                  child: ReusableCard(
+                    onPress: () {
                       setState(() {
                         selectedGender = Gender.female;
                       });
                     },
-                    child: ReusableCard(
-                      color: selectedGender == Gender.female
-                          ? activeCardColor
-                          : inActiveCardColor,
-                      child: IconContent(
-                        icon: FontAwesomeIcons.venus,
-                        label: "FEMALE",
-                      ),
+                    color: selectedGender == Gender.female
+                        ? activeCardColor
+                        : inActiveCardColor,
+                    child: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      label: "FEMALE",
                     ),
                   ),
                 ),
@@ -64,9 +58,7 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Expanded(
-            child: Expanded(
-              child: ReusableCard(),
-            ),
+            child: ReusableCard(),
           ),
           Expanded(
             child: Row(
