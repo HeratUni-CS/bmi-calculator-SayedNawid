@@ -1,3 +1,5 @@
+import 'package:bmi_starting/result_page.dart';
+import 'package:bmi_starting/roundIconButton.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
@@ -12,6 +14,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
   int height = 160;
+  int weight = 60;
+  int age = 18;
 
   @override
   Widget build(BuildContext context) {
@@ -112,19 +116,100 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(),
+                  child: ReusableCard(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "WEIGHT",
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPress: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPress: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
                 ),
                 Expanded(
-                  child: ReusableCard(),
+                  child: ReusableCard(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "AGE",
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPress: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPress: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
-          Container(
-            color: buttomCardColor,
-            margin: const EdgeInsets.only(top: 10),
-            width: double.infinity,
-            height: bottomHeight,
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => ResultPage())));
+            },
+            child: Container(
+              color: buttomCardColor,
+              margin: const EdgeInsets.only(top: 10),
+              width: double.infinity,
+              height: bottomHeight,
+            ),
           ),
         ],
       ),
