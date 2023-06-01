@@ -1,3 +1,4 @@
+import 'package:bmi_starting/calculator.dart';
 import 'package:bmi_starting/screens/result_page.dart';
 import 'package:bmi_starting/component/roundIconButton.dart';
 import 'package:flutter/material.dart';
@@ -6,8 +7,6 @@ import '../component/buttonButton.dart';
 import '../component/icon_content.dart';
 import '../component/resuable_card.dart';
 import '../constants.dart';
-
-
 
 class InputPage extends StatefulWidget {
   @override
@@ -206,10 +205,16 @@ class _InputPageState extends State<InputPage> {
           ButtonButton(
             title: "CALCULATOR",
             onTap: () {
+              Calculator calculator =
+                  Calculator(height: height, weight: weight);
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ResultPage(),
+                  builder: (context) => ResultPage(
+                    bmiResult: calculator.CalculateBmi(),
+                    resultText: calculator.getResult(),
+                    interpretation: calculator.getInterpretation(),
+                  ),
                 ),
               );
             },
