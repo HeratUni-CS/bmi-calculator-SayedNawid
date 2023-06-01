@@ -1,10 +1,13 @@
-import 'package:bmi_starting/result_page.dart';
-import 'package:bmi_starting/roundIconButton.dart';
+import 'package:bmi_starting/screens/result_page.dart';
+import 'package:bmi_starting/component/roundIconButton.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'constants.dart';
-import 'icon_content.dart';
-import 'resuable_card.dart';
+import '../component/buttonButton.dart';
+import '../component/icon_content.dart';
+import '../component/resuable_card.dart';
+import '../constants.dart';
+
+
 
 class InputPage extends StatefulWidget {
   @override
@@ -200,16 +203,16 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: ((context) => ResultPage())));
+          ButtonButton(
+            title: "CALCULATOR",
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultPage(),
+                ),
+              );
             },
-            child: Container(
-              color: buttomCardColor,
-              margin: const EdgeInsets.only(top: 10),
-              width: double.infinity,
-              height: bottomHeight,
-            ),
           ),
         ],
       ),
